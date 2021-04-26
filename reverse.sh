@@ -21,7 +21,7 @@ do
 	# Reversing buffers the whole movie into memory.
 	# "-segment_time 30" caused ffmpeg to use 3 GB of RAM.
 	# Let this be small enough, so a computer with max 4 GB RAM can run it too.
-	ffmpeg -loglevel $loglevel -fflags +genpts -y -i "$movieFile" -codec copy -f segment -segment_time 40 -reset_timestamps 1 -segment_list ./tmp/tmp.ffcat "./tmp/chunk-%03d-$fileName";
+	ffmpeg -loglevel $loglevel -fflags +genpts -y -i "$movieFile" -codec copy -f segment -segment_time 80 -reset_timestamps 1 -segment_list ./tmp/tmp.ffcat "./tmp/chunk-%03d-$fileName";
 
 	for chunkFile in ./tmp/chunk*
 	do
